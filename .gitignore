@@ -1,0 +1,12 @@
+# Ignorer les fichiers de cache et les modules Node.js
+node_modules/
+.cache/
+
+# Ignorer les fichiers de build ou de logs
+build/
+dist/
+*.log
+
+# Ignorer les fichiers spécifiques à votre projet
+marvel-quiz/node_modules/
+marvel-quiz/.cache/
