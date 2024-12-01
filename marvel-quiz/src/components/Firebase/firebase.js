@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut} from "firebase/auth";
-
+import { onAuthStateChanged,sendPasswordResetEmail } from "firebase/auth";
 
 const config = {
     apiKey: "AIzaSyAoziKVLx9ejak3HoExJqPNqeVtkovqtnQ",
@@ -26,7 +26,14 @@ class Firebase {
     signInWithEmailAndPassword(this.auth,email,password);
 
     //deconnexion
-    signoutUser = () => signOut(this.auth)
+    signoutUser = () => signOut(this.auth);
+
+    // Récuperation de mot de pass oublié
+    passwordReset = email => sendPasswordResetEmail(this.auth,email);
+
+    //surveiller l'état d'authentification
+    onAuthStateChanged = (callback) =>
+    onAuthStateChanged(this.auth,callback)
 }
 
 export default Firebase;
